@@ -8,6 +8,8 @@ import openai
 
 openai_api_key = os.getenv('OPENAI_API_KEY')
 
+openai.api_key = openai_api_key
+
 API_KEY = os.getenv("PERPLEXITY_API_KEY")
 
 if not API_KEY:
