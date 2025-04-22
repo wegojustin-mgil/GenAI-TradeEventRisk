@@ -116,6 +116,8 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
+gpt_model = "gpt-4.1"
+
 def get_summary_and_sentiment(content: str, currency: str) -> (str, int):
     try:
         messages = [
