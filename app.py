@@ -46,6 +46,7 @@ st.markdown("""
         --bg-container: #ffffff;      /* white */
         --bg-card: #ffffff;           /* white */
         --bg-muted: #f3f4f6;          /* gray-100 */
+        --sidebar-bg: #f1f5f9;        /* light gray (slate-100) */
         
         /* Border colors */
         --border-light: #e5e7eb;      /* gray-200 */
@@ -150,14 +151,24 @@ st.markdown("""
         pointer-events: none;
       }
 
-      /* Sidebar styling */
+      /* Sidebar styling with light gray background */
       .stSidebar {
-        background-color: var(--bg-container);
-        padding: 1.75rem 1.25rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow-sm);
+        background-color: var(--sidebar-bg) !important;
       }
-
+      
+      .stSidebar [data-testid="stSidebar"] {
+        background-color: var(--sidebar-bg) !important;
+      }
+      
+      .stSidebar [data-testid="stSidebarNav"] {
+        background-color: var(--sidebar-bg) !important;
+      }
+      
+      .stSidebar .sidebar-content {
+        background-color: var(--sidebar-bg) !important;
+      }
+      
+      /* Elements within sidebar */
       .stSidebar h2 {
         color: var(--primary-color);
         font-size: 1.5rem;
