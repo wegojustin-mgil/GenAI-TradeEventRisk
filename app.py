@@ -151,7 +151,7 @@ st.markdown("""
         pointer-events: none;
       }
 
-      /* Sidebar styling with light gray background */
+      /* Sidebar styling with fixed text color */
       .stSidebar {
         background-color: var(--sidebar-bg) !important;
       }
@@ -166,6 +166,29 @@ st.markdown("""
       
       .stSidebar .sidebar-content {
         background-color: var(--sidebar-bg) !important;
+      }
+      
+      /* Fix for sidebar text visibility */
+      .stSidebar p, 
+      .stSidebar div, 
+      .stSidebar span, 
+      .stSidebar label, 
+      .stSidebar .element-container,
+      .stSidebar.stMarkdown {
+        color: var(--text-color) !important;
+      }
+      
+      /* Make links and interactive elements in sidebar visible */
+      .stSidebar a, 
+      .stSidebar button {
+        color: var(--primary-color) !important;
+      }
+      
+      /* Ensure sidebar text has sufficient contrast */
+      [data-testid="stSidebarNav"] [data-testid="stMarkdown"] p,
+      [data-testid="stSidebarNav"] [data-testid="stText"] p {
+        color: var(--text-color) !important;
+        font-weight: 500;
       }
       
       /* Elements within sidebar */
