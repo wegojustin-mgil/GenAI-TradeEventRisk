@@ -38,6 +38,8 @@ st.markdown("""
       /* Base font */
       html, body, [class*="css"] {
         font-family: 'Roboto', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-color);
       }
 
       /* App background and main container */
@@ -113,54 +115,6 @@ st.markdown("""
       FX Event Risk Analysis
     </div>
 """, unsafe_allow_html=True)
-
-# Mode selector (light/dark)
-mode = st.sidebar.radio("🌗 Theme Mode", ["Light", "Dark"], index=0)
-
-gpt_model = "gpt-4.1"
-
-if mode == "Dark":
-    st.markdown("""
-        <style>
-            html, body, [class*="css"] {
-                background-color: #0f172a;
-                color: #f8fafc;
-                font-family: 'Segoe UI', sans-serif;
-            }
-
-            .block-container {
-                padding: 2rem 3rem;
-            }
-
-            .sidebar .sidebar-content {
-                background-color: #1e293b;
-                color: white;
-            }
-
-            .sidebar .sidebar-content * {
-                color: white !important;
-            }
-
-            .stButton > button {
-                background-color: #1e40af;
-                color: white;
-                border-radius: 10px;
-                padding: 0.6rem 1.2rem;
-                font-size: 1rem;
-            }
-
-            h1, h2, h3 {
-                color: #cbd5e1;
-            }
-
-            textarea, input, select {
-                background-color: #1e293b !important;
-                color: #f8fafc !important;
-                border-radius: 8px;
-                border: 1px solid #475569 !important;
-            }
-        </style>
-    """, unsafe_allow_html=True)
 
 def get_summary_and_sentiment(content: str, currency: str) -> (str, int):
     try:
