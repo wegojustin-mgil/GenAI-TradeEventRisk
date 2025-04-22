@@ -86,23 +86,20 @@ st.markdown("""
         margin-top: 1.5rem;
       }
 
-      /* Buttons */
-     div.stButton > button {
-  background-color: var(--primary-color) !important;
-  color: #ffffff !important;
-  border: none !important;
-  border-radius: var(--border-radius) !important;
-  padding: 0.75rem 1.5rem !important;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
-  transition: transform var(--transition), box-shadow var(--transition);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-div.stButton > button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
-}
+  /* Buttons */
+      button[kind="primary"] {
+        background-color: var(--primary-color) !important;
+        color: #ffffff !important;
+        border-radius: var(--border-radius);
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        transition: transform var(--transition), box-shadow var(--transition);
+        border: none !important;
+      }
+      button[kind="primary"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+      }
 
       /* Inputs */
       input, textarea, select {
