@@ -24,90 +24,115 @@ st.set_page_config(
 # CSS styling enhancement
 st.markdown("""
     <style>
-      /* Color palette */
       :root {
-        --primary-color: #3b82f6;       /* blue-500 */
-        --secondary-color: #10b981;     /* green-500 */
-        --text-color: #111827;          /* gray-900 */
-        --bg-light: #f9fafb;            /* gray-50 */
-        --bg-container: #ffffff;        /* white */
+        --primary-color: #3b82f6;
+        --secondary-color: #10b981;
+        --text-color: #111827;
+        --bg-light: #f9fafb;
+        --bg-container: #ffffff;
         --border-radius: 12px;
         --transition: 0.2s ease;
       }
 
-      /* Base font */
       html, body, [class*="css"] {
         font-family: 'Roboto', sans-serif;
-        background-color: var(--bg-light);
-        color: var(--text-color);
+        background-color: var(--bg-light) !important;
+        color: var(--text-color) !important;
+        font-size: 16px;
       }
 
-      /* App background and main container */
       .stApp {
         background-color: var(--bg-light) !important;
       }
+
       .block-container {
-        background-color: var(--bg-container);
+        background-color: var(--bg-container) !important;
         border-radius: var(--border-radius);
-        padding: 2.5rem;
+        padding: 1.5rem;
         box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-        color: var(--text-color);
+        margin: 0 auto;
+        max-width: 100%;
       }
 
-      /* Top banner */
       .top-banner {
         background-color: var(--primary-color);
         color: white;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 600;
         text-align: center;
         border-radius: var(--border-radius);
-        padding: 1.5rem;
-        margin-bottom: 2rem;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       }
 
-      /* Sidebar styling */
-      .stSidebar {
-        background-color: var(--bg-container);
-        padding: 1.5rem 1rem;
-        border-radius: var(--border-radius);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      }
-      .stSidebar h2 {
-        color: var(--primary-color);
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
-
-      /* Headings */
       h1, h2, h3 {
         color: var(--primary-color);
-        margin-top: 1.5rem;
+        margin-top: 1.25rem;
       }
 
-      /* Buttons */
-      button[kind="primary"] {
+      /* Clean and override all Streamlit button styles */
+      .stButton > button {
         background-color: var(--primary-color) !important;
         color: #ffffff !important;
-        border-radius: var(--border-radius);
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        transition: transform var(--transition), box-shadow var(--transition);
         border: none !important;
+        border-radius: var(--border-radius);
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: var(--transition);
+        width: 100%;
       }
-      button[kind="primary"]:hover {
+
+      .stButton > button:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
       }
 
-      /* Inputs */
+      /* Dropdowns, inputs, textareas */
       input, textarea, select {
         background-color: var(--bg-container) !important;
         color: var(--text-color) !important;
-        border-radius: 8px;
+        border-radius: 8px !important;
         border: 1px solid #e5e7eb !important;
         padding: 0.75rem !important;
+        width: 100% !important;
+      }
+
+      /* Dropdown styling fix for black backgrounds */
+      .stSelectbox div[data-baseweb="select"] > div {
+        background-color: var(--bg-container) !important;
+        color: var(--text-color) !important;
+        border-radius: 8px !important;
+        border: 1px solid #e5e7eb !important;
+      }
+
+      .stNumberInput, .stSelectbox {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Remove any default box black fill on containers */
+      .stContainer, .stMarkdown, .stTextInput, .stNumberInput, .stSelectbox, .stButton {
+        background-color: transparent !important;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .block-container {
+          padding: 1rem;
+        }
+
+        .top-banner {
+          font-size: 1.25rem;
+          padding: 0.75rem;
+        }
+
+        .stButton > button {
+          font-size: 0.95rem;
+          padding: 0.65rem;
+        }
+
+        input, select {
+          font-size: 1rem;
+        }
       }
     </style>
 
@@ -115,6 +140,7 @@ st.markdown("""
       FX Event Risk Analysis
     </div>
 """, unsafe_allow_html=True)
+
 
 gpt_model = "gpt-4.1"
 
