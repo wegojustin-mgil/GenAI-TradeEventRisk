@@ -240,7 +240,7 @@ st.markdown("""
         outline: none;
       }
 
-      /* Tables */
+      /* Tables with light header */
       table {
         width: 100%;
         border-collapse: separate;
@@ -252,8 +252,9 @@ st.markdown("""
       }
 
       thead tr {
-        background-color: var(--primary-color);
-        color: white;
+        background-color: #f8fafc;    /* Very light bluish gray */
+        color: var(--text-color);
+        border-bottom: 2px solid var(--border-medium);
       }
 
       th {
